@@ -1,0 +1,21 @@
+<?php
+
+$conn = mysqli_connect("localhost","root","");
+mysqli_select_db($conn,"apidb");
+
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+
+	$qry = "INSERT INTO `tb1_user` (`id`, `name`, `email`)
+			VALUES (NULL, '$name', '$email')";
+
+	$res = mysqli_query($conn,$qry);
+
+	if($res == true)
+		$response = "inserted";
+	else
+		$response = "failed";
+
+	echo $response;
+
+?>
